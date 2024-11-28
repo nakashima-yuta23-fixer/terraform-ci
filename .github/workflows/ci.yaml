@@ -12,7 +12,7 @@ on:
       - terraform/**
 
 jobs:
-  job1:
+  tflint:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1 in Job 1
