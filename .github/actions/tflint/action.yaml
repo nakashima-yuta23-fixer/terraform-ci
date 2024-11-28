@@ -1,0 +1,24 @@
+name: tflint
+description: |
+  Run tflint.
+
+runs:
+  using: composite
+  steps:
+    # TFLint install
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v4
+      with:
+        tflint_version: v0.54.0
+
+    # Init TFLint
+    - name: Init TFLint
+      shell: bash
+      run: tflint --init -c ./.github/actions/tflint/.tflint.hcl
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    # Run TFLint
+    - name: Run TFLint
+      shell: bash
+      run: tflint -c ./.github/actions/tflint/.tflint.hcl
