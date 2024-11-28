@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "this" {
   location = var.location
 }
 
-resource "azurerm_container_registry" "acr" {
+resource "azurerm_container_registry" "this" {
   name                = "acrtestcigatewaydvje"
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
